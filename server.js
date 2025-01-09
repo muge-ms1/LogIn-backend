@@ -10,7 +10,12 @@ connectDB()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ['https://log-in-frontend-1mmr.vercel.app'], // Allow only your frontend
+    methods: ['GET', 'POST', 'OPTIONS'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify headers
+    credentials: true // Include credentials if needed
+}));
 
 // api endpoints
 app.use('/api/user',userRouter)
