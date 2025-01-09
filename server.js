@@ -9,8 +9,9 @@ const port = process.env.PORT || 4000
 connectDB()
 
 // middlewares
-app.use(express.json())
 app.use(cors({ origin: '*' }));
+app.use(express.json())
+
 
 // api endpoints
 app.use('/api/user',userRouter)
